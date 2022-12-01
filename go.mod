@@ -1,4 +1,4 @@
-module github.com/deepmap/oapi-codegen
+module github.com/lkarlslund/oapi-codegen
 
 require (
 	github.com/apapsch/go-jsonmerge/v2 v2.0.0
@@ -56,7 +56,6 @@ require (
 	golang.org/x/net v0.2.0 // indirect
 	golang.org/x/sys v0.2.0 // indirect
 	golang.org/x/time v0.0.0-20220411224347-583f2d630306 // indirect
-	golang.org/x/xerrors v0.0.0-20220411194840-2f41105eb62f // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
