@@ -333,7 +333,7 @@ func Generate(spec *openapi3.T, opts Configuration) (string, error) {
 
 	outBytes, err := imports.Process(opts.PackageName+".go", []byte(goCode), nil)
 	if err != nil {
-		return "", fmt.Errorf("error formatting Go code %s: %w", goCode, err)
+		return goCode, fmt.Errorf("error formatting Go code %s: %w", goCode, err)
 	}
 	return string(outBytes), nil
 }
@@ -656,8 +656,9 @@ func GenerateEnums(t *template.Template, types []TypeDefinition) (string, error)
 		for j := i + 1; j < len(enums); j++ {
 			e2 := enums[j]
 
+			e2values := e2.GetValues()
 			for e1key := range e1.GetValues() {
-				_, found := e2.GetValues()[e1key]
+				_, found := e2values[e1key]
 				if found {
 					e1.PrefixTypeName = true
 					e2.PrefixTypeName = true
